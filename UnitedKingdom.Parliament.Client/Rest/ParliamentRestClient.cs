@@ -23,7 +23,7 @@ namespace UnitedKingdom.Parliament.Rest
             return result.Result;
         }
 
-        public async Task<ParliamentPage<TResult>?> GetPageAsync<TResult>(string url, Action<ParliamentPageOptions>? options = null)
+        public async Task<ParliamentListPage<TResult>?> GetListPageAsync<TResult>(string url, Action<ParliamentPageOptions>? options = null)
         {
             if (options != null)
             {
@@ -35,8 +35,18 @@ namespace UnitedKingdom.Parliament.Rest
                 else
                     url += "?" + queryString;
             }
-            var result = await GetAsync<ParliamentPage<TResult>>(url);
+            var result = await GetAsync<ParliamentListPage<TResult>>(url);
             return result;
+        }
+
+        public async Task<ParliamentItemPage<TResult>?> GetItemPageAsync<TResult>(string url) =>
+            await GetAsync<ParliamentItemPage<TResult>>(url);
+
+        public async Task<TResult?> GetItemAsync<TResult>(string url)
+        {
+            var result = await GetAsync<ParliamentItemPage<TResult>>(url);
+            if (result == null) return default;
+            return result.PrimaryTopic;
         }
     }
 }

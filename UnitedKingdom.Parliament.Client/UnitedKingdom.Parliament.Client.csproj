@@ -34,8 +34,4 @@
     <PackageReference Include="MikaelDui.Extensions" Version="*" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
 </Project>

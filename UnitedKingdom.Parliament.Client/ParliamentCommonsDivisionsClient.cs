@@ -15,24 +15,38 @@ namespace UnitedKingdom.Parliament
         /// <summary>
         /// All Commons Divisions.
         /// </summary>
-        public async Task<ParliamentPage<CommonsDivision>?> GetDivisionsAsync(Action<ParliamentPageOptions>? options = null) =>
-            await _restClient.GetPageAsync<CommonsDivision>("commonsdivisions", options);
-    }
+        public async Task<ParliamentListPage<CommonsDivision>?> GetDivisionsAsync(Action<ParliamentPageOptions>? options = null) =>
+            await _restClient.GetListPageAsync<CommonsDivision>("commonsdivisions", options);
 
-    public class CommonsDivision
-    {
-        [JsonPropertyName("_about")]
-        public Uri About { get; set; }
-        public Date Date { get; set; }
-        public string Title { get; set; }
-        public string Uin { get; set; }
-    }
+        /// <summary>
+        /// Commons Division by ID.
+        /// </summary>
+        public async Task<CommonsDivision?> GetDivisionAsync(int id) =>
+            await _restClient.GetItemAsync<CommonsDivision>("commonsdivisions/" + id);
 
-    public class Date
-    {
-        [JsonPropertyName("_value")]
-        public DateTime Value { get; set; }
-        [JsonPropertyName("_datatype")]
-        public string DataType { get; set; }
+        /// <summary>
+        /// Commons Division.
+        /// </summary>
+        public async Task<CommonsDivision?> GetDivisionAsync(CommonsDivision division) =>
+            await GetDivisionAsync(division.GetId());
+
+        /// <summary>
+        /// Commons Divisions by Session.
+        /// </summary>
+        public async Task<ParliamentListPage<CommonsDivision>?> GetDivisionsBySessionAsync(string session, Action<ParliamentPageOptions>? options = null) =>
+            await _restClient.GetListPageAsync<CommonsDivision>("commonsdivisions?session=" + session, options);
+
+        /// <summary>
+        /// Commons Divisions by UIN.
+        /// </summary>
+        public async Task<ParliamentListPage<CommonsDivision>?> GetDivisionsByUinAsync(string uin, Action<ParliamentPageOptions>? options = null) =>
+            await _restClient.GetListPageAsync<CommonsDivision>("commonsdivisions?uin=" + uin, options);
+
+
+        /// <summary>
+        /// Commons Division Vote by ID.
+        /// </summary>
+        public async Task<CommonsDivisionVote?> GetDivisionVoteAsync(int divisionId, int voteId) =>
+            await _restClient.GetItemAsync<CommonsDivisionVote>($"resources/{divisionId}/vote/{voteId}");
     }
 }
