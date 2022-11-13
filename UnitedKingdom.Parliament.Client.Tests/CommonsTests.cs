@@ -91,5 +91,37 @@ namespace UnitedKingdom.Parliament.Tests
             Assert.IsNotNull(result);
             Assert.IsNotNull(result.MemberParty);
         }
+
+        [TestMethod]
+        public async Task GetDivisionsWhereMemberVotedNoAsync()
+        {
+            using ParliamentClient client = new();
+            var divisions = await client.Commons.Divisions.GetDivisionsAsync(options =>
+            {
+                options.PageSize = 20;
+                options.Sort.Add("-date");
+            });
+            var division = await client.Commons.Divisions.GetDivisionAsync(divisions.Items.First());
+            var result = await client.Commons.Divisions.GetDivisionsWhereMemberVotedNoAsync(division.Votes.First().Member.First());
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Items.Any());
+            Assert.IsNotNull(result.Items.First().Title);
+        }
+
+        [TestMethod]
+        public async Task GetDivisionsWhereMemberVotedAyeAsync()
+        {
+            using ParliamentClient client = new();
+            var divisions = await client.Commons.Divisions.GetDivisionsAsync(options =>
+            {
+                options.PageSize = 20;
+                options.Sort.Add("-date");
+            });
+            var division = await client.Commons.Divisions.GetDivisionAsync(divisions.Items.First());
+            var result = await client.Commons.Divisions.GetDivisionsWhereMemberVotedAyeAsync(division.Votes.First().Member.First());
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Items.Any());
+            Assert.IsNotNull(result.Items.First().Title);
+        }
     }
 }
