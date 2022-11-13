@@ -9,12 +9,12 @@
     <PackageId>MikaelDui.UnitedKingdom.Parliament.Client</PackageId>
     <Authors>Mikael Dúi Bolinder</Authors>
     <Product>MikaelDui.UnitedKingdom.Parliament.Client</Product>
-    <Description>This project is really awesome!</Description>
+    <Description>The UK Parliament has two Houses that work on behalf of UK citizens to check and challenge the work of Government, make and shape effective laws, and debate/make decisions on the big issues of the day.</Description>
     <PackageProjectUrl>https://github.com/mikaeldui/united-kingdom-parliament-dotnet-client</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>UnitedKingdom.Parliament.Client.png</PackageIcon>
     <RepositoryUrl>https://github.com/mikaeldui/united-kingdom-parliament-dotnet-client</RepositoryUrl>
-    <PackageTags></PackageTags>
+    <PackageTags>uk; parliament; united kingdom; politics; commons; lords; divisions; votes; voting; elections; questions</PackageTags>
     <PackageLicenseExpression>Unlicense</PackageLicenseExpression>
     <AssemblyName>MikaelDui.UnitedKingdom.Parliament.Client</AssemblyName>
   </PropertyGroup>
