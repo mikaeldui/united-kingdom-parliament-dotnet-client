@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>UnitedKingdom.Parliament</RootNamespace>
+    <PackageId>MikaelDui.UnitedKingdom.Parliament.Client</PackageId>
+    <Authors>Mikael Dúi Bolinder</Authors>
+    <Product>MikaelDui.UnitedKingdom.Parliament.Client</Product>
+    <Description>This project is really awesome!</Description>
+    <PackageProjectUrl>https://github.com/mikaeldui/united-kingdom-parliament-dotnet-client</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>UnitedKingdom.Parliament.Client.png</PackageIcon>
+    <RepositoryUrl>https://github.com/mikaeldui/united-kingdom-parliament-dotnet-client</RepositoryUrl>
+    <PackageTags></PackageTags>
+    <PackageLicenseExpression>Unlicense</PackageLicenseExpression>
+    <AssemblyName>MikaelDui.UnitedKingdom.Parliament.Client</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\UnitedKingdom.Parliament.Client.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MikaelDui.Extensions" Version="*" />
+  </ItemGroup>
+
+</Project>
