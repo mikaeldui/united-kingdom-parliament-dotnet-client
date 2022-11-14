@@ -25,9 +25,10 @@ internal class ParliamentRestClient : HttpClient
 
     public async Task<ParliamentListPage<TResult>?> GetListPageAsync<TResult>(string url, Action<ParliamentPageOptions>? options = null)
     {
+        ParliamentPageOptions? opt = null;
         if (options != null)
         {
-            ParliamentPageOptions opt = new();
+            opt = new();
             options.Invoke(opt);
             var queryString = opt.ToString();
             if (url.Contains('?'))
@@ -36,6 +37,7 @@ internal class ParliamentRestClient : HttpClient
                 url += "?" + queryString;
         }
         var result = await GetAsync<ParliamentListPage<TResult>>(url);
+        result.Options = opt;
         return result;
     }
 

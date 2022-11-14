@@ -1,4 +1,6 @@
-﻿namespace UnitedKingdom.Parliament;
+﻿using UnitedKingdom.Parliament.Rest;
+
+namespace UnitedKingdom.Parliament;
 
 public class LordsBillAmendment : LinkedData
 {

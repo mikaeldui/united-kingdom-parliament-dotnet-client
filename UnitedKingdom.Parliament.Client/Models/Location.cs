@@ -1,10 +1,9 @@
 ﻿using System.Diagnostics;
 using System.Reflection.Emit;
+using UnitedKingdom.Parliament.Rest;
 
 namespace UnitedKingdom.Parliament;
 
-[DebuggerDisplay($"{{{nameof(PrefLabel)}}}")]
-public class Location : LinkedData
+public class Location : TermBase
 {
-    public StringValue PrefLabel { get; set; }
 }

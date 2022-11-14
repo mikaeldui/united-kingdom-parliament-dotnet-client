@@ -1,7 +1,8 @@
 ﻿using System.Diagnostics;
 using System.Reflection.Emit;
+using UnitedKingdom.Parliament.Rest;
 
-namespace UnitedKingdom.Parliament.Models;
+namespace UnitedKingdom.Parliament;
 
 [DebuggerDisplay($"{{{nameof(TablingMember)}.Label}} to {{{nameof(AnsweringBody)}}}: {{{nameof(QuestionText)}}}")]
 public abstract class QuestionBase : LinkedData

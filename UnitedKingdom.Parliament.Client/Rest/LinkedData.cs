@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace UnitedKingdom.Parliament;
+namespace UnitedKingdom.Parliament.Rest;
 
 public abstract class LinkedData
 {

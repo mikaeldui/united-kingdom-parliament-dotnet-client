@@ -1,4 +1,4 @@
-﻿using UnitedKingdom.Parliament.Models;
+﻿using UnitedKingdom.Parliament.Rest;
 
 namespace UnitedKingdom.Parliament;
 

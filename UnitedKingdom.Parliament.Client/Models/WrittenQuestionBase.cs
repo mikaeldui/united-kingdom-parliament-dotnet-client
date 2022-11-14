@@ -1,4 +1,4 @@
-﻿namespace UnitedKingdom.Parliament.Models;
+﻿namespace UnitedKingdom.Parliament;
 
 public abstract class WrittenQuestionBase : QuestionBase
 {

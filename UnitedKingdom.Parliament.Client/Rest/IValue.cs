@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Text.Json.Serialization;
 using UnitedKingdom.Parliament.Converters;
 
-namespace UnitedKingdom.Parliament;
+namespace UnitedKingdom.Parliament.Rest;
 
 [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
 public interface IValue
@@ -24,6 +24,8 @@ public abstract class ValueBase<TType> : IValue
     object IValue.Value { get => Value; set => Value = (TType)value; }
 
     public override string ToString() => Value.ToString();
+
+    public static implicit operator TType(ValueBase<TType> value) => value.Value;
 }
 
 [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
@@ -36,7 +38,7 @@ public class DateTimeValue : ValueBase<DateTime> { }
 public class IntegerValue : ValueBase<int> { }
 
 [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
-public class BooleanValue : ValueBase<bool> 
+public class BooleanValue : ValueBase<bool>
 {
     [JsonPropertyName("_value"), JsonConverter(typeof(BoolStringJsonConverter))]
     public bool Value { get; set; }

@@ -9,6 +9,7 @@ public class ParliamentClient : IDisposable
     private ParliamentElectionClient? _electionClient;
     private ParliamentLordsClient? _lordsClient;
     private ParliamentMemberClient? _memberClient;
+    private ParliamentPublicationLogClient? _publicationLogClient;
 
     public ParliamentClient() => _restClient = new ParliamentRestClient()
     {
@@ -25,6 +26,11 @@ public class ParliamentClient : IDisposable
     /// Returns all Members' Biographies.
     /// </summary>
     public ParliamentMemberClient Members => _memberClient ??= new ParliamentMemberClient(_restClient);
+
+    /// <summary>
+    /// Returns all Publication Logs.
+    /// </summary>
+    public ParliamentPublicationLogClient PublicationLogs => _publicationLogClient ??= new ParliamentPublicationLogClient(_restClient);
 
     public void Dispose() => ((IDisposable)_restClient).Dispose();
 }

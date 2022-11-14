@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace UnitedKingdom.Parliament;
+namespace UnitedKingdom.Parliament.Rest;
 
 public abstract class ParliamentPageBase : LinkedData
 {
@@ -10,6 +10,11 @@ public abstract class ParliamentPageBase : LinkedData
 
 public class ParliamentListPage<TType> : ParliamentPageBase
 {
+    /// <summary>
+    /// Options (if any) used to get this page.
+    /// </summary>
+    internal ParliamentPageOptions? Options { get; set; }
+
     public TType[]? Items { get; set; }
     public Uri First { get; set; }
     public Uri HasPart { get; set; }
