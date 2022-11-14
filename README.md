@@ -2,14 +2,14 @@
 [![.NET](https://github.com/mikaeldui/united-kingdom-parliament-dotnet-client/actions/workflows/dotnet.yml/badge.svg)](https://github.com/mikaeldui/united-kingdom-parliament-dotnet-client/actions/workflows/dotnet.yml)
 [![CodeQL Analysis](https://github.com/mikaeldui/united-kingdom-parliament-dotnet-client/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/mikaeldui/united-kingdom-parliament-dotnet-client/actions/workflows/codeql-analysis.yml)
 
-A .NET Client for the UK Partliament's API at https://explore.data.parliament.uk/.
+A .NET Client for the UK Parliament's API at https://explore.data.parliament.uk/.
 
 You can install it using the following **.NET CLI** command:
 
     dotnet add package MikaelDui.UnitedKingdom.Parliament.Client --version *
 
 ## Example
-Write the titles of the 20 latest commons division in the console.
+Write the titles of the 20 latest commons divisions in the console.
 
     using ParliamentClient client = new();
     var result = await client.Commons.Divisions.GetDivisionsAsync(options =>
