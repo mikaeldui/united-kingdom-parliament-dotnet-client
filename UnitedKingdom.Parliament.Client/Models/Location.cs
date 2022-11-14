@@ -1,7 +1,6 @@
-﻿namespace UnitedKingdom.Parliament
+﻿namespace UnitedKingdom.Parliament;
+
+public class Location : LinkedData
 {
-    public class Location : LinkedData
-    {
-        public StringValue PrefLabel { get; set; }
-    }
+    public StringValue PrefLabel { get; set; }
 }

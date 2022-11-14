@@ -1,7 +1,6 @@
-﻿namespace UnitedKingdom.Parliament
+﻿namespace UnitedKingdom.Parliament;
+
+public class Constituency : LinkedData
 {
-    public class Constituency : LinkedData
-    {
-        public StringValue Label { get; set; }
-    }
+    public StringValue Label { get; set; }
 }

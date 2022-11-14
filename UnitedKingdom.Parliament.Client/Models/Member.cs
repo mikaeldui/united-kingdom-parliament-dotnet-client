@@ -1,8 +1,7 @@
-﻿namespace UnitedKingdom.Parliament
+﻿namespace UnitedKingdom.Parliament;
+
+public class Member : LinkedData
 {
-    public class Member : LinkedData
-    {
-        public StringValue FullName { get; set; }
-        public StringValue Label { get; set; }
-    }
+    public StringValue FullName { get; set; }
+    public StringValue Label { get; set; }
 }

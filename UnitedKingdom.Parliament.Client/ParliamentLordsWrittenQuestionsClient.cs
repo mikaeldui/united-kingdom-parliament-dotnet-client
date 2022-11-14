@@ -4,11 +4,11 @@ using UnitedKingdom.Parliament.Rest;
 namespace UnitedKingdom.Parliament;
 
 [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
-public class ParliamentLordsBillAmendmentsClient
+public class ParliamentLordsWrittenQuestionsClient
 {
     private readonly ParliamentRestClient _restClient;
 
-    internal ParliamentLordsBillAmendmentsClient(ParliamentRestClient restClient) => _restClient = restClient;
+    internal ParliamentLordsWrittenQuestionsClient(ParliamentRestClient restClient) => _restClient = restClient;
 
     /// <summary>
     /// Returns all Lords Bill Amendments.
