@@ -25,21 +25,21 @@ namespace UnitedKingdom.Parliament
         public async Task<ParliamentListPage<CommonsOralQuestion>?> GetQuestionsByAnswerDateAsync(DateTime startDate, DateTime endDate, Action<ParliamentPageOptions>? options = null) =>
             await _restClient.GetListPageAsync<CommonsOralQuestion>($"commonsoralquestions/answerDate?startDate={startDate:s}&endDate={endDate:s}", options);
 
-        #region GetQuestionsByMnisIdAsync
+        #region Get Questions By Member
 
         /// <summary>
         /// All Commons Oral Questions.
         /// </summary>
-        public async Task<ParliamentListPage<CommonsOralQuestion>?> GetQuestionsByMnisIdAsync(int mnisId, Action<ParliamentPageOptions>? options = null) =>
+        public async Task<ParliamentListPage<CommonsOralQuestion>?> GetQuestionsByMemberAsync(int mnisId, Action<ParliamentPageOptions>? options = null) =>
             await _restClient.GetListPageAsync<CommonsOralQuestion>("commonsoralquestions?mnisId=" + mnisId, options);
 
         /// <summary>
         /// All Commons Oral Questions.
         /// </summary>
-        public async Task<ParliamentListPage<CommonsOralQuestion>?> GetQuestionsByMnisIdAsync(Member member, Action<ParliamentPageOptions>? options = null) =>
-            await GetQuestionsByMnisIdAsync(member.GetId(), options);
+        public async Task<ParliamentListPage<CommonsOralQuestion>?> GetQuestionsByMemberAsync(Member member, Action<ParliamentPageOptions>? options = null) =>
+            await GetQuestionsByMemberAsync(member.GetId(), options);
 
-        #endregion GetQuestionsByMnisIdAsync
+        #endregion Get Questions By Member
 
         /// <summary>
         /// All Commons Oral Questions By Answering Body.

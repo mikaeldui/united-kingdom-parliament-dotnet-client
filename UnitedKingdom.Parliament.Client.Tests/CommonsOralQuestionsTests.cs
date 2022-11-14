@@ -38,7 +38,7 @@ namespace UnitedKingdom.Parliament.Tests
         }
 
         [TestMethod]
-        public async Task GetQuestionsByMnisIdAsync()
+        public async Task GetQuestionsByMemberAsync()
         {
             using ParliamentClient client = new();
             var questions = await client.Commons.OralQuestions.GetQuestionsAsync(options =>
@@ -46,7 +46,7 @@ namespace UnitedKingdom.Parliament.Tests
                 options.PageSize = 20;
                 options.Sort.Add("-date");
             });
-            var result = await client.Commons.OralQuestions.GetQuestionsByMnisIdAsync(questions.Items.First().TablingMember, options =>
+            var result = await client.Commons.OralQuestions.GetQuestionsByMemberAsync(questions.Items.First().TablingMember, options =>
             {
                 options.PageSize = 20;
                 options.Sort.Add("date");
@@ -97,21 +97,20 @@ namespace UnitedKingdom.Parliament.Tests
         [TestMethod]
         public async Task GetQuestionsByTablingDateAsync()
         {
-            Assert.Inconclusive("Don't know how to get tabling date.");
-            //using ParliamentClient client = new();
-            //var questions = await client.Commons.OralQuestions.GetQuestionsAsync(options =>
-            //{
-            //    options.PageSize = 20;
-            //    options.Sort.Add("-date");
-            //});
-            //var result = await client.Commons.OralQuestions.GetQuestionsByTablingDateAsync(questions.Items.First().AnsweringBody.First().Value, options =>
-            //{
-            //    options.PageSize = 20;
-            //    options.Sort.Add("date");
-            //});
-            //Assert.IsNotNull(result);
-            //Assert.IsTrue(result.Items.Any());
-            //Assert.IsNotNull(result.Items.First().About);
+            using ParliamentClient client = new();
+            var questions = await client.Commons.OralQuestions.GetQuestionsAsync(options =>
+            {
+                options.PageSize = 20;
+                options.Sort.Add("-date");
+            });
+            var result = await client.Commons.OralQuestions.GetQuestionsByTablingDateAsync(questions.Items.First().DateTabled.Value.AddMonths(-1), questions.Items.First().DateTabled.Value, options =>
+            {
+                options.PageSize = 20;
+                options.Sort.Add("date");
+            });
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Items.Any());
+            Assert.IsNotNull(result.Items.First().About);
         }
 
         [TestMethod]
