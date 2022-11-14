@@ -4,7 +4,7 @@ namespace UnitedKingdom.Parliament
 {
     public abstract class ParliamentPageBase : LinkedData
     {
-        public Uri Definition { get; set; }
+        public object Definition { get; set; }
         public Uri ExtendedMetadataVersion { get; set; }
     }
     

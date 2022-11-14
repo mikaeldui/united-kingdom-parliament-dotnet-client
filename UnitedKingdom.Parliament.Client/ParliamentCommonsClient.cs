@@ -8,9 +8,11 @@ namespace UnitedKingdom.Parliament
     {
         private readonly ParliamentRestClient _restClient;
         private ParliamentCommonsDivisionsClient? _divisionsClient;
+        private ParliamentCommonsOralQuestionsClient? _oralQuestionsClient;
 
         internal ParliamentCommonsClient(ParliamentRestClient restClient) => _restClient = restClient;
 
         public ParliamentCommonsDivisionsClient Divisions => _divisionsClient ??= new ParliamentCommonsDivisionsClient(_restClient);
+        public ParliamentCommonsOralQuestionsClient OralQuestions => _oralQuestionsClient ??= new ParliamentCommonsOralQuestionsClient(_restClient);
     }
 }

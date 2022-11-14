@@ -86,7 +86,6 @@ namespace UnitedKingdom.Parliament
 
         #endregion Get Divisions where Member voted No
 
-
         #region Get Divisions where Member voted Aye
 
         /// <summary>

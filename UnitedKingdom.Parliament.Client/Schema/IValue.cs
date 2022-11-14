@@ -26,4 +26,12 @@ namespace UnitedKingdom.Parliament
         public string DataType { get; set; }
         object IValue.Value { get => Value; set => Value = (DateTime)value; }
     }
+    public class IntegerValue : IValue
+    {
+        [JsonPropertyName("_value")]
+        public int Value { get; set; }
+        [JsonPropertyName("_datatype")]
+        public string DataType { get; set; }
+        object IValue.Value { get => Value; set => Value = (int)value; }
+    }
 }
