@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Text.Json.Serialization;
+using UnitedKingdom.Parliament.Converters;
 
 namespace UnitedKingdom.Parliament
 {
@@ -26,6 +27,7 @@ namespace UnitedKingdom.Parliament
         public string DataType { get; set; }
         object IValue.Value { get => Value; set => Value = (DateTime)value; }
     }
+
     public class IntegerValue : IValue
     {
         [JsonPropertyName("_value")]
@@ -33,5 +35,14 @@ namespace UnitedKingdom.Parliament
         [JsonPropertyName("_datatype")]
         public string DataType { get; set; }
         object IValue.Value { get => Value; set => Value = (int)value; }
+    }
+
+    public class BooleanValue : IValue
+    {
+        [JsonPropertyName("_value"), JsonConverter(typeof(BoolStringJsonConverter))]
+        public bool Value { get; set; }
+        [JsonPropertyName("_datatype")]
+        public string DataType { get; set; }
+        object IValue.Value { get => Value; set => Value = (bool)value; }
     }
 }
