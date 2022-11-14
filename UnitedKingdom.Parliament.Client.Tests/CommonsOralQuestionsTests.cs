@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitedKingdom.Parliament.Tests
 {
     [TestClass]
-    public class CommonsOralTests
+    public class CommonsOralQuestionsTests
     {
         [TestMethod]
         public async Task GetQuestionsAsync()
@@ -78,14 +78,13 @@ namespace UnitedKingdom.Parliament.Tests
         [TestMethod]
         public async Task GetQuestionsBySessionAsync()
         {
-            Assert.Inconclusive("Don't know how to get a session.");
             using ParliamentClient client = new();
-            var questions = await client.Commons.OralQuestions.GetQuestionsAsync(options =>
+            var questions = await client.Commons.OralQuestions.Times.GetTimesAsync(options =>
             {
                 options.PageSize = 20;
                 options.Sort.Add("-date");
             });
-            var result = await client.Commons.OralQuestions.GetQuestionsBySessionAsync(questions.Items.First().AnsweringBody.First().Value, options =>
+            var result = await client.Commons.OralQuestions.GetQuestionsBySessionAsync(questions.Items.First().Session.First(), options =>
             {
                 options.PageSize = 20;
                 options.Sort.Add("date");

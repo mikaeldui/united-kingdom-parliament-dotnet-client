@@ -5,7 +5,7 @@
         public DateTimeValue AnswerDate { get; set; }
         public DateTimeValue AnswerDateTime { get; set; }
         public StringValue[] AnsweringBody { get; set; }
-        public CommonsQuestionTime CommonsQuestionTime { get; set; }
+        public CommonsOralQuestionTime CommonsQuestionTime { get; set; }
         public Location Location { get; set; }
         public StringValue QuestionsStatus { get; set; }
         public IntegerValue BallotNumber { get; set; }

@@ -7,8 +7,11 @@ namespace UnitedKingdom.Parliament
     public class ParliamentCommonsOralQuestionsClient
     {
         private readonly ParliamentRestClient _restClient;
+        private ParliamentCommonsOralQuestionTimesClient? _timesClient;
 
         internal ParliamentCommonsOralQuestionsClient(ParliamentRestClient restClient) => _restClient = restClient;
+
+        public ParliamentCommonsOralQuestionTimesClient Times => _timesClient ??= new ParliamentCommonsOralQuestionTimesClient(_restClient);
 
         /// <summary>
         /// All Commons Oral Questions.
@@ -67,7 +70,7 @@ namespace UnitedKingdom.Parliament
         /// <summary>
         /// All Commons Oral Questions By Time ID.
         /// </summary>
-        public async Task<ParliamentListPage<CommonsOralQuestion>?> GetQuestionsByTimeAsync(CommonsQuestionTime time, Action<ParliamentPageOptions>? options = null) =>
+        public async Task<ParliamentListPage<CommonsOralQuestion>?> GetQuestionsByTimeAsync(CommonsOralQuestionTime time, Action<ParliamentPageOptions>? options = null) =>
             await GetQuestionsByTimeAsync(time.GetId(), options);
 
         #endregion
