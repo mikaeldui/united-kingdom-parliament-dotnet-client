@@ -14,7 +14,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>UnitedKingdom.Parliament.Client.png</PackageIcon>
     <RepositoryUrl>https://github.com/mikaeldui/united-kingdom-parliament-dotnet-client</RepositoryUrl>
-    <PackageTags>uk; parliament; united kingdom; politics; commons; lords; divisions; votes; voting; elections; questions;</PackageTags>
+    <PackageTags>uk; parliament; ukparliament; united kingdom; politics; commons; lords; divisions; votes; voting; elections; questions;</PackageTags>
     <PackageLicenseExpression>Unlicense</PackageLicenseExpression>
     <AssemblyName>MikaelDui.UnitedKingdom.Parliament.Client</AssemblyName>
   </PropertyGroup>
