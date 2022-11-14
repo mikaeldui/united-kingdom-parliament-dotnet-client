@@ -10,27 +10,33 @@ public class ParliamentClient : IDisposable
     private ParliamentLordsClient? _lordsClient;
     private ParliamentMemberClient? _memberClient;
     private ParliamentPublicationLogClient? _publicationLogClient;
+    private ParliamentResearchBriefingClient? _researchBriefingClient;
 
     public ParliamentClient() => _restClient = new ParliamentRestClient()
     {
         BaseAddress = new Uri("https://lda.data.parliament.uk/", UriKind.Absolute)
     };
 
-    public ParliamentCommonsClient Commons => _commonsClient ??= new ParliamentCommonsClient(_restClient);
+    public ParliamentCommonsClient Commons => _commonsClient ??= new(_restClient);
 
-    public ParliamentElectionClient Elections => _electionClient ??= new ParliamentElectionClient(_restClient);
+    public ParliamentElectionClient Elections => _electionClient ??= new(_restClient);
 
-    public ParliamentLordsClient Lords => _lordsClient ??= new ParliamentLordsClient(_restClient);
+    public ParliamentLordsClient Lords => _lordsClient ??= new(_restClient);
 
     /// <summary>
     /// Returns all Members' Biographies.
     /// </summary>
-    public ParliamentMemberClient Members => _memberClient ??= new ParliamentMemberClient(_restClient);
+    public ParliamentMemberClient Members => _memberClient ??= new(_restClient);
 
     /// <summary>
     /// Returns all Publication Logs.
     /// </summary>
-    public ParliamentPublicationLogClient PublicationLogs => _publicationLogClient ??= new ParliamentPublicationLogClient(_restClient);
+    public ParliamentPublicationLogClient PublicationLogs => _publicationLogClient ??= new(_restClient);
+    
+    /// <summary>
+    /// Returns all Research Briefings.
+    /// </summary>
+    public ParliamentResearchBriefingClient ResearchBriefings => _researchBriefingClient ??= new(_restClient);
 
     public void Dispose() => ((IDisposable)_restClient).Dispose();
 }

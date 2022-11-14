@@ -32,15 +32,3 @@ public class ParliamentPublicationLogClient
     public async Task<PublicationLog?> GetPublicationLogAsync(PublicationLog publicationLog) =>
         await GetPublicationLogAsync(publicationLog.GetId());
 }
-
-[DebuggerDisplay($"{{{nameof(Label)}}}")]
-public class PublicationLog : LinkedData
-{
-    public StringValue Label { get; set; }
-    public StringValue PaperNumber { get; set; }
-    public DateTimeValue PublicationDate { get; set; }
-
-    // Extended
-    public Legislature[]? Legislature { get; set; }
-    public SubType? SubType { get; set; }
-}
