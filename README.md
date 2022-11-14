@@ -2,7 +2,10 @@
 [![.NET](https://github.com/mikaeldui/united-kingdom-parliament-dotnet-client/actions/workflows/dotnet.yml/badge.svg)](https://github.com/mikaeldui/united-kingdom-parliament-dotnet-client/actions/workflows/dotnet.yml)
 [![CodeQL Analysis](https://github.com/mikaeldui/united-kingdom-parliament-dotnet-client/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/mikaeldui/united-kingdom-parliament-dotnet-client/actions/workflows/codeql-analysis.yml)
 
-A .NET Client for the UK Parliament's API at https://explore.data.parliament.uk/.
+A .NET Client for [@ukparliament](https://github.com/ukparliament)'s API at https://explore.data.parliament.uk/.
+
+Namespace: `UnitedKingdom.Parliament`.
+Main class: `ParliamentClient`.
 
 You can install it using the following **.NET CLI** command:
 
