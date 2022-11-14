@@ -1,5 +1,8 @@
-﻿namespace UnitedKingdom.Parliament;
+﻿using System.Diagnostics;
 
+namespace UnitedKingdom.Parliament;
+
+[DebuggerDisplay($"{{{nameof(Label)}}}")]
 public class Election : LinkedData
 {
     public DateTimeValue Date { get; set; }

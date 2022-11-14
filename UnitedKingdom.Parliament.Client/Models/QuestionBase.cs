@@ -1,5 +1,9 @@
-﻿namespace UnitedKingdom.Parliament.Models;
+﻿using System.Diagnostics;
+using System.Reflection.Emit;
 
+namespace UnitedKingdom.Parliament.Models;
+
+[DebuggerDisplay($"{{{nameof(TablingMember)}.Label}} to {{{nameof(AnsweringBody)}}}: {{{nameof(QuestionText)}}}")]
 public abstract class QuestionBase : LinkedData
 {
     public DateTimeValue AnswerDate { get; set; }

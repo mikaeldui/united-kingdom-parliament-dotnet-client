@@ -8,6 +8,7 @@ public class ParliamentClient : IDisposable
     private ParliamentCommonsClient? _commonsClient;
     private ParliamentElectionClient? _electionClient;
     private ParliamentLordsClient? _lordsClient;
+    private ParliamentMemberClient? _memberClient;
 
     public ParliamentClient() => _restClient = new ParliamentRestClient()
     {
@@ -19,6 +20,11 @@ public class ParliamentClient : IDisposable
     public ParliamentElectionClient Elections => _electionClient ??= new ParliamentElectionClient(_restClient);
 
     public ParliamentLordsClient Lords => _lordsClient ??= new ParliamentLordsClient(_restClient);
+
+    /// <summary>
+    /// Returns all Members' Biographies.
+    /// </summary>
+    public ParliamentMemberClient Members => _memberClient ??= new ParliamentMemberClient(_restClient);
 
     public void Dispose() => ((IDisposable)_restClient).Dispose();
 }

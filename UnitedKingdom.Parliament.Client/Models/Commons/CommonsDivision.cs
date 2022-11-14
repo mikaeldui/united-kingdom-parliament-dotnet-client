@@ -1,7 +1,9 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Diagnostics;
+using System.Text.Json.Serialization;
 
 namespace UnitedKingdom.Parliament;
 
+[DebuggerDisplay($"{{{nameof(Title)}}}")]
 public class CommonsDivision : LinkedData
 {
     public DateTimeValue Date { get; set; }
@@ -24,4 +26,9 @@ public class CommonsDivision : LinkedData
     public string[]? Session { get; set; }
     [JsonPropertyName("vote")]
     public CommonsDivisionVote[]? Votes { get; set; }
+
+    private string GetDebuggerDisplay()
+    {
+        return ToString();
+    }
 }

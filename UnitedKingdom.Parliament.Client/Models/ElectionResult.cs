@@ -1,7 +1,10 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Diagnostics;
+using System.Reflection.Emit;
+using System.Text.Json.Serialization;
 
 namespace UnitedKingdom.Parliament;
 
+[DebuggerDisplay($"{{{nameof(Election)}.Label}}, {{{nameof(ResultOfElection)}}}")]
 public class ElectionResult : LinkedData
 {
     [JsonPropertyName("candidate")]
@@ -14,6 +17,7 @@ public class ElectionResult : LinkedData
     public int Turnout { get; set; }
 }
 
+[DebuggerDisplay($"{{{nameof(FullName)}}}")]
 public class CandidateElectionResult : LinkedData
 {
     public StringValue FullName { get; set; }
